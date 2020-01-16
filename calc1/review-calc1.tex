@@ -1,0 +1,262 @@
+\documentclass{beamer}
+%\usetheme{CambridgeUS}
+\usetheme{Szeged}
+%\usetheme{Warsaw}
+\usecolortheme{beaver}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[normalem]{ulem}
+
+\title{What you learned in Calc 1}
+\date{2019 Fall}
+
+\begin{document}
+\frame{\titlepage}
+
+%\begin{frame}{Table of Contents}
+  %\tableofcontents
+%\end{frame}
+
+\section{Overall}
+\begin{frame}[label={sec:orgb61fcc0}]{Main Ideas of Calculus}
+\begin{block}{The Derivative}
+\begin{itemize}
+\item "Instantaneous rate of change"
+\item "Slope of a tangent line"
+\item Limit of the secant line, as the end-points get \uline{arbitrarily close}
+\end{itemize}
+\end{block}
+\begin{block}{The Integral}
+\begin{itemize}
+\item "Area under a curve"
+\begin{itemize}
+\item Approximate by summing up rectangles
+\item Approximate better by using \uline{infinitely many} rectangles
+\end{itemize}
+\end{itemize}
+\end{block}
+\begin{block}{FTC (Fundamental Theorem of Calculus)}
+Slogan: "Differentiation and Integration are inverse operations"
+\end{block}
+\end{frame}
+
+\begin{frame}[label={sec:org833f693}]{Main Ideas of Calculus (Mathematically)}
+
+\begin{block}{The Derivative}
+\(f'(a) := \lim\limits_{h\to0} \frac{f(a+h) - f(a)}{h}\)
+or 
+\(f'(a) := \lim\limits_{x\to a} \frac{f(x) - f(a)}{x-a}\)
+\end{block}
+
+\begin{block}{The Integral}
+\(\int_a^b f(x) dx := \lim\limits_{N\to\infty} \sum\limits_{i=1}^N f(x_i) \cdot \frac{b-a}{N}\)
+\end{block}
+
+\begin{block}{FTC (Fundamental Theorem of Calculus)}
+\begin{itemize}
+\item Part 1: \(\frac{d}{dx} \int_a^x f(t) dt = f(x)\)
+\item Part 2: \(\int_a^b f(x) dx = F(b) - F(a)\)
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}[label={sec:org4009a94}]{Limits}
+We want to be to evaluate limits. They are just a calculation.
+
+\begin{itemize}
+\item Start with direct substition
+\item If that fails, try:
+\begin{itemize}
+\item Algebraic technique
+\item L'Hopital's: 
+\[
+      \lim_{x\to a} \frac{f(x)}{g(x)} = \lim_{x\to a} \frac{f'(x)}{g'(x)}
+      \]
+
+\begin{itemize}
+\item \alert{The LHS must be of type \(\frac00\) or type \(\frac{\infty}{\infty}\) for this to hold}
+\end{itemize}
+\end{itemize}
+\end{itemize}
+
+\begin{block}{Indeterminate forms}
+\begin{itemize}
+\item \(\frac00\), \(\frac{\infty}{\infty}\), \(\infty-\infty\), \(0\cdot\infty\)
+\item \(1^\infty\), \(0^0\), \(\infty^0\)
+\begin{itemize}
+\item Note that taking \(\ln()\) of these reduces them to the type \(0 \cdot \infty\)
+\end{itemize}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Differential Calculus}
+
+\begin{frame}[label={sec:org5f23ff0}]{Derivative Rules}
+\begin{block}{Basic Derivative rules}
+\begin{itemize}
+\item Product rule: \((fg)' = f'g + fg'\)
+\item Quotient rule: \((\frac{f}{g})^{'} = \frac{f'g - fg'}{g^2}\)
+\item Chain rule: \([f(g(x))]' = f'(g(x)) \cdot g'(x)\)
+\item Power rule: $(x^n)' = n x^{n-1}$
+  \begin{itemize}
+  \item \alert{Do not confuse with: $\int x^n dx = \frac{x^{n+1}}{n+1} + C$}
+  \end{itemize}
+\end{itemize}
+\end{block}
+\begin{block}{Trig Derivatives}
+\begin{itemize}
+\item \(\sin \to \cos\), \(\cos \to -\sin\)
+\item \(\tan \to \sec^2\), \(\cot \to -\csc^2\)
+\item \(\sec(x) \to \sec(x) \tan(x)\), \(\csc(x) \to -\csc(x) \cot(x)\)
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}[label={sec:orga8d0a69}]{More Derivative Rules}
+\begin{block}{Log and Exponential Derivatives}
+\begin{itemize}
+\item Special
+\begin{itemize}
+\item \(\ln x \to \frac 1x\)
+\item \(e^x \to e^x\)
+\end{itemize}
+\item General
+\begin{itemize}
+\item \(\log_b x \to \frac{1}{\ln b} \frac{1}{x}\)
+\item \(b^x \to (\ln b) b^x\)
+\end{itemize}
+\end{itemize}
+\end{block}
+
+
+\begin{block}{Inverse Trig Derivatives}
+\begin{itemize}
+\item \(\sin^{-1}x \to \frac{1}{\sqrt{1-x^2}}\), \(\cos^{-1} x \to -\frac{1}{\sqrt{1-x^2}}\)
+\item \(\tan^{-1}x \to \frac{1}{x^2 + 1}\), \(\cot^{-1}x \to -\frac{1}{x^2+1}\)
+\item \(\sec^{-1}x \to \frac{1}{|x| \sqrt{x^2-1}}\), \(\csc^{-1}x \to -\frac{1}{|x|\sqrt{x^2-1}}\)
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}[label={sec:org8e01da0}]{Logarithmic differentiation}
+  \begin{block}{What is it}
+    Taking ln() of both sides before differentiating (and remembering to undo this).
+  \end{block}
+
+  \begin{block}{Why use it}
+    \begin{itemize}
+    \item ln() will turn multiplication/division into addition/subtraction, so that you can avoid product rule and quotient rule.
+    \item If \(x\) occurs in both the base and the power, then this technique is necessary (e.g. $y = x^x$).
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[label={sec:orgfecd3ee}]{Implicit differentiation}
+\begin{itemize}
+\item Using \(y \to y'\) in addition to ordinary derivative rules.
+\item Why?
+\begin{itemize}
+\item Sometimes both \(x\) and \(y\) are on the same side of the equation, and the equation cannot be solved for \(y\) fully.
+\item However, we can still think about slopes of tangent lines for such curves, so we want to be able to compute the derivative
+\item E.g. A circle. \(x^2 + y^2 = 1\)
+\end{itemize}
+\end{itemize}
+
+Related rates are an example of this
+\end{frame}
+
+\begin{frame}[label={sec:org54f2f5a}]{Linearization}
+\begin{itemize}
+\item The idea behind it: Use the derivative as a linear approximation for your function.
+
+\item To construct an \(L(x)\) that approximates \(f(x)\) near \(x=a\):
+\[
+    L(x) = f(a) + f'(a)(x-a)
+    \]
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgc1829e8}]{Curve sketching}
+\begin{itemize}
+\item \(f'\) denotes increasing/decreasing
+\begin{itemize}
+\item positive: increasing
+\item negative: decreasing
+\item zero or undefined: critical point
+\end{itemize}
+
+\item \(f''\) denotes concavity
+\begin{itemize}
+\item positive: concave up
+\item negative: concave down
+\item zero: inflection point
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgbd73406},fragile]{Optimization}
+  Overall: Want to find critical points, and classify as local min/max.
+
+  To classify:
+\begin{enumerate}
+\item First derivative test:
+Evaluate \(f(x)\) \alert{on either side} of the critical point
+\begin{itemize}
+\item \texttt{+|-} : max
+\item \texttt{-|+} : min
+\item otherwise : neither
+\end{itemize}
+
+\item Second derivative test:
+Evaluate \(f''(p)\) \alert{at} the critical point
+
+\begin{itemize}
+\item \(f''(p)>0\) : Concave up, so local min
+\item \(f''(p)<0\) : Concave down, so local max
+\item \(f''(p)=0\) : Inconclusive
+\end{itemize}
+\end{enumerate}
+
+Making the case that a local min/max is a \alert{global} min/max requires an extra condition:
+\begin{enumerate}
+\item First derivative test: \(f(x)\) has no other critical points
+\item Second derivative test: \(f'' > 0\) always or \(f'' < 0\) always.
+\end{enumerate}
+\end{frame}
+
+\section{Integral Calculus}
+
+\begin{frame}[label={sec:orgddabff4}]{Integral techniques}
+\begin{itemize}
+\item Spotting the antiderivative by inspection
+\item U-sub
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Area between curves}
+  ``Upper function $-$ lower function''
+\end{frame}
+
+\begin{frame}[label={sec:org7499686}]{Volume of revolution}
+\begin{block}{Disk / Washer method}
+\begin{itemize}
+\item Disk: 
+\[
+    V = \pi \int_a^b [r(x)]^2\ dx
+    \]
+\item Washer: 
+\[
+     V = \pi \int_a^b \left( [R(x)]^2 - [r(x)]^2 \right) \ dx
+     \]
+\end{itemize}
+\end{block}
+\begin{block}{Shell method}
+\[
+   V = 2\pi \int_a^b r(x) \cdot h(x) \ dx
+   \]
+\end{block}
+\end{frame}
+
+\end{document}
