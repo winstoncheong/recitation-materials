@@ -1,0 +1,157 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage[inline]{enumitem}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{tcolorbox}
+\usepackage{textcomp}
+\usepackage{commath}
+\usepackage{mathtools}
+\usepackage{physics}
+\usepackage{outlines}
+\usepackage[colorlinks=true]{hyperref}
+
+
+\usepackage{siunitx}
+\DeclareSIUnit{\feet}{ft}
+
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\vavg}{v_{\text{avg}}}
+\newcommand{\inv}{^{-1}}
+
+\everymath{\displaystyle} 
+
+\title{Exam 1 Prep}
+\date{Last Modified: 2019/09/25}
+\author{}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+%\fbox{The shaded boxed are full solutions, as the answer \emph{is} the whole solution.}
+%\vskip 1em
+
+\section{Material outline:}
+\begin{outline}
+  \1 Prior knowledge
+  \2 Evaluation of trig functions at special angles
+  \2 Sketching graph of sin/cos with transformations
+  \1 Sided limits, limits, continuity
+  \1 Sided continuity?
+  \1 Evaluating limits
+  \2 Direct substitution
+  \2 Simplification
+  \3 Factorization
+  \3 Multiplying by the conjugate
+  \3 Combining fractions
+  \2 Squeeze Theorem
+  \2 Trig limits:
+  \[
+    \lim_{x\to0} \frac{\sin x}{x} = 1 \qquad \lim_{x\to0} \frac{\cos x - 1}{x} = 0
+  \]
+  \1 Using the limit definition of derivative
+  \1 Average velocity and instantaneous velocity
+  \1 ``Derivative is the slope of tangent line''
+  \1 The process of finding the tangent line
+  \1 Derivative properties:
+  \2 Power rule
+  \2 Product rule
+  \2 Quotient rule
+  \2 Chain rule
+  \2 Trig derivatives
+  \1 Using IVT to find a root / to show a solution to an equation exists.
+\end{outline}
+
+\section{Past exam problems}
+\subsection{Limit evaluation (including Squeeze)}
+\begin{enumerate}
+\item $\lim\limits_{\theta\to0} \frac{\sin(\theta)}{2\theta}$
+\item $\lim\limits_{\theta\to\pi}\frac{\cos\theta}{\theta}$
+\item $\lim\limits_{\theta\to1} \frac{1-\sqrt x}{1-x}$
+\item $\lim\limits_{\theta\to0} \frac{\cos\theta}{\theta-3}$
+\item $\lim\limits_{x\to1} \left( \frac{1}{x-1} - \frac{1}{x^2-x} \right)$
+\item $\lim\limits_{x\to3} \frac{x^2-5x+6}{x-3}$
+\item $\lim\limits_{x\to0} x^2 \sin(\frac{5}{x})$
+\item $\lim\limits_{\theta\to0} \theta^2 \sin(\frac{1}{\theta})$
+\item $\lim\limits_{x\to2} \frac{x-2}{x^2-4}$
+\item $\lim\limits_{t\to2} \frac{\sqrt{2+t} - 2}{t-2}$
+\item $\lim\limits_{x\to\pi} \sin x$
+\item $\lim\limits_{x\to3} \frac{x-3}{x^2-5x+6}$
+\item $\lim\limits_{t\to3} \frac{\sqrt{t+6}-3}{3-t}$
+\item $\lim\limits_{x\to2} (x-2)^2 \cos(\frac{\pi}{x-2})$
+\item $\lim_{x\to5} \frac{x-5}{x^2-25}$
+\item $\lim_{x\to4} \frac{2-\sqrt x}{x-4}$
+\item $\lim_{\theta\to0} \tan(\theta) + \theta + 1$
+\item $\lim_{\theta\to0} \frac{3\sin\theta}{7\theta}$
+\item $\lim_{x\to5} \frac{x^2-4x-5}{x-5}$
+\item $\lim_{t\to9}\frac{3-\sqrt t}{9-t}$
+\item Find $\lim_{x\to1} h(x)$, where $4x-1 \le h(x) \le 2x^2 + 1$ for all $x$.
+\item $\lim_{\theta\to0}\frac{\cos\theta}{\theta^2+3}$
+\item $\lim_{w\to3} \frac{w^2-2w-3}{w-3}$
+\item $\lim_{t\to1}\left( \frac{1}{t^2-t} - \frac{1}{t-1} \right)$
+\item Find $\lim_{x\to1} h(x)$, where $-2x^4 + 5 \le h(x) \le 11-8x$ for all $x$.
+\item $\lim_{x\to1} \frac{\sin(x-1)}{x^2 - 1}$
+\item $\lim_{x \to 3} \frac{x^2 + x - 12}{x^2 - x - 6}$
+\item $\lim_{\theta\to0}  \frac{\cos \theta - \cos^2\theta}{\theta}$
+\item $\lim_{x\to0} 5x^2 \cos(\frac2x)$
+\end{enumerate}
+
+\subsection{Continuity}
+\footnote{Shows up on older exams. May not be as relevant}
+\begin{enumerate}
+\item Is $q(x) = \begin{cases} 4 & x = 2 \\ \frac{x^2 - 4}{x-2} & x \ne 2 \end{cases}$ continuous?
+\item Find a constant $c$ that makes the following function continuous:
+  \[
+    q(x) = \begin{cases} 3 & x > 2 \\ x + c & x \le 2. \end{cases}
+  \]
+\end{enumerate}
+
+\subsection{Using IVT}
+\begin{enumerate}
+\item Show there is a root of $f(x) = x^3 + 2x - 1$ in the interval $(0, 1)$.
+\item Show there is a root of $x^5 + x - 1 = 0$ in the interval $(0, 1)$.
+\item Show there is a root of $3x^7 - 2^x = 0$ in the interval $(0, 1)$.
+\item Show there is a root of $3x^7 + x - 2 = 0$ in the interval $(0, 1)$.
+\item Let $f(x) = x^4 + 2x - 1$. Show there is a point $c$ between $-1$ and 1 such that $f(c) = 0$.
+\item Show that $2\sin x = \cos 4x$ has a solution on the interval $[0, \tfrac{\pi}{4}]$
+\item Show $2e^t = t^4$ has a solution on the interval $[-1, 0]$
+\end{enumerate}
+
+\subsection{Using limit definition of derivative (maybe make tangent line)}
+\begin{enumerate}
+\item Let $v(x) = x^2$. Find $v'(3)$.
+\item Let $f(x) = \sqrt{x}$. Find $f'(4)$.
+\item Let $z(t) = 3t^2 + t$. Find $z'(1)$.
+\item Let $g(x) = x^2 + 8$. Find $g'(3)$
+\item Let $z(t) = \frac{7}{t}$. Find $z'(1)$.
+\item Let $g(x) = x^2 + 3x$. Find $g'(2)$.
+\item Let $f(x) = \sqrt{x + 3}$. Find $f'(1)$.
+\end{enumerate}
+
+\subsection{Take derivatives}
+\begin{enumerate}
+\item $\dod{}{x}\left(\frac{5}{x^3} + \sqrt{x}\right)$
+\item $\dod{}{x}\left(5x^3 + 3\sqrt x + \frac{2}{x}\right)$
+\item $\dod{}{\theta}(\sin\theta \cdot \cos \theta)$
+\item $\dod{}{\theta} \tan(2\theta^7)$
+\item $\dod{}{x} \frac{x^2-2}{x-1}$
+\item $\dod{}{x} \frac{x^5+4}{3x^2+9}$
+\item $\dod{}{x} \cos(\sec(x))$
+\item $\dod{}{x} \frac{3x^2 + 2}{x^8 + x^4}$
+\item $k(x) = 5x^2 - 9 \sqrt x + 3$
+\item $v(\theta) = \cos(\tan(\theta))$
+\item $p(t) = \frac{\sin(3t)}{2x^2+7}$
+\item $\dod{}{x} \frac{\sqrt x}{\cos x}$
+\item $h(x) = \frac{x^3}{(3x^2 + 4)^5}$
+\item $\dod{}{x} \frac{\tan x}{x^8 + x^4}$
+\item $\dod{}{x} \sin(\cos(\tan(x)))$
+\item $v(x) = \frac{\cos x}{x^2 + 1}$
+\item $h(x) = \left(\sin(\sqrt x)\right)^5$
+\item $p(x)= (\tan(x) + x)^3$
+\item $f(x) = \frac{1}{x^2} + \sqrt[3]{x}$
+\item $g(x) = (2x^{2/3} - 3x^2)(x^{-1/2} + 5x^{3/7})$
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,201 @@
+\documentclass[10pt]{scrartcl}
+
+\usepackage[inline]{enumitem}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{tcolorbox}
+\usepackage{textcomp}
+\usepackage{commath}
+\usepackage{mathtools}
+\usepackage{physics}
+\usepackage{outlines}
+\usepackage[colorlinks=true]{hyperref}
+
+
+\usepackage{siunitx}
+\DeclareSIUnit{\feet}{ft}
+
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\vavg}{v_{\text{avg}}}
+\newcommand{\inv}{^{-1}}
+
+\everymath{\displaystyle} 
+
+\title{Exam 2 Prep}
+\date{Last Modified: 2019/10/18}
+\author{}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+%\fbox{The shaded boxed are full solutions, as the answer \emph{is} the whole solution.}
+%\vskip 1em
+
+\section{Material outline:}
+\begin{outline}
+  \1 Previous material:
+  \2 Unit circle
+  \2 Product rule
+  \2 Quotient rule
+  \2 Chain rule
+  \2 Trig derivatives
+  \1 Derivatives of log and exponential:
+  \begin{align*}
+    \dod{}{x} \ln x &= \frac 1x & \dod{}{x} e^x &= e^x\\
+    \dod{}{x} \log_b x &= \frac{1}{\ln b} \frac 1x & \dod{}{x} a^x &= (\ln a) a^x
+  \end{align*}
+  \1 Derivatives of inverse trig functions:
+  \begin{align*}
+    \dod{}{x} \sin\inv x &= \frac{1}{\sqrt{1 - x^2}} & \dod{}{x} \cos\inv x &= -\frac{1}{\sqrt{1 - x^2}} \\
+    \dod{}{x} \tan\inv x &= \frac{1}{x^2 + 1} & \dod{}{x} \cot\inv x &= -\frac{1}{x^2 + 1}\\
+    \dod{}{x} \sec\inv x &= \frac{1}{|x|\sqrt{x^2 - 1}} & \dod{}{x} \csc\inv x &= -\frac{1}{|x|\sqrt{x^2 - 1}}
+  \end{align*}
+  \1 Logarithmic differentiation
+  \1 Implicit differentiation
+  \1 Related rates
+  \1 Linearization
+  \1 Differentials
+  \1 Mean value theorem?
+  \1 Finding / identifying local and global extrema on a graph
+  \1 The process of finding absolute min/max on a closed domain
+  \1 First and second derivative tests
+  \1 Calculating $\lim_{x\to\infty}$ and $\lim_{x\to-\infty}$
+  \1 Curve sketching
+  \1 Reading data off of a graph
+  \2 Intervals where increasing/decreasing
+  \2 Local mins and maxes
+  \2 Intervals where concave up/down
+\end{outline}
+
+\section{Past exam problems}
+The following problems all have written solutions in my exam archive at \url{http://www.math.ksu.edu/\~winstonc/exams/calc1}.
+
+Note, I have rephrased some of the problems here, to ease typing. 
+Unless I've made a mistake, the exam listed should be where the problem was originally found.
+
+\subsection{Take Derivatives}
+\begin{enumerate}
+\item (2018 Fall Exam 2) $\dod{}{x}\left(x \cdot \arctan(3x^2)\right)$
+\item (2018 Fall Exam 2) $\dod{}{x}\left(x \cdot \frac{2^x - \ln x}{e^x + 1} \right)$
+\item (2018 Fall Final) $\dod{}{x}\left( \frac{\tan x}{\ln x + 3} \right)$
+\item (2018 Fall Final) $\dod{}{x} \sin(x^2) \cdot \arctan(x)$
+\item (2017 Fall Exam 2) $w(x) = \frac{\tan(e^x)}{1+x^3}$
+\item (2017 Fall Exam 2) $h(x) = \sin\inv(\ln(x))$
+\item (2017 Summer Exam 2) $f(x) = \tan(\ln(6x^4+x^2))$
+\item (2017 Summer Exam 2) $y = e^{\sin x}$
+\item (2017 Spring Exam 2) $\dod{}{x}\left( 2^x - \frac{5}{x^2} + \ln(7) \right)$
+\item (2017 Spring Exam 2) $\dod{}{x}\left(\sqrt x \cdot \tan x\right)$
+\item (2017 Spring Exam 2) $\dod{}{x} \arctan(2t^2 - 3)$
+\item (2017 Spring Exam 2) $\dod{}{x} \left( \frac{6\ln x-2x^3}{e^x+3} \right)$
+\item (2016 Spring Exam 2) $\dod{}{x} \sin x \cdot 2^x$
+\item (2016 Spring Exam 2) $\dod{}{x}  \frac{\sqrt{x}}{\cos x}$
+\item (2016 Spring Exam 2) $\dod{}{w} \arctan(5w^2 + 3)$
+\item (2016 Spring Exam 2) $\dod{}{x}(e^{e^x})$
+\item (2016 Spring Exam 2) $\dod{}{\theta} \tan\theta \cdot \ln\theta$
+\item (2016 Fall Exam 2) $w(x) = x^3 e^{1/x}$
+\item (2016 Fall Exam 2) $h(x) = \tan\inv(x^2)$
+\end{enumerate}
+
+\subsubsection{Using Logarithmetic Differentiation}
+\textbf{Question}: If you weren't prompted, would you know that these problems involve logarithmic diff just by looking?
+
+\begin{enumerate}
+\item (2018 Fall Exam 2) Find the derivative of $h(x) = x^{5x^2}$
+\item (2018 Fall Final) Find the derivative of $f(x) = x^{3x}$
+\item (2017 Fall Exam 2) $y = x^{5x}(2 + 3x^2)^4$
+\item (2017 Summer Exam 2) Find the derivative of $y = \frac{(x+2)^2}{(x+5)(3x-4)}$.
+\item (2017 Spring Exam 2) Find the derivative of $h(x) = e^x \cdot x^{5\cos(x)}$
+\item (2016 Spring Exam 2) Find the derivative of $h(x) = \frac{x^x}{(3x^2+4)^5}$
+\item (2016 Spring Exam 2) Find $\dod yx$ if $y = x^{2x}(1-x)^7$.
+\end{enumerate}
+
+\subsubsection{Using Implicit Differentiation}
+\begin{enumerate}
+\item (2018 Fall Exam 2) Compute $\dod{y}{x}$ for $x^2y - e^y = x + 1$
+\item (2018 Fall Final) Find $\dod{y}{x}$ for $x^3 + xy + y^4 = 5$
+\item (2017 Fall Exam 2) Find an equation for the tangent line to the curve $x^2 y + y^2 = x^3 - 3$ at the point $(2, 1)$.
+\item (2017 Summer Exam 2) Compute $\dod{y}{x}$ for $3xy^2 = y^3 - \cos x$
+\item (2017 Spring Exam 2) Find $\dod{y}{x}$ if $\sin(xy^2) = x^2$.
+\item (2016 Spring Exam 2) Find $\dod yx$ if $x^2y^3 = e^x - y^2$. 
+\item (2016 Fall Exam 2) Find an equation for the tangent line to the curve $xy + 7 = x^3 + y^3$ at the point $(2, 1)$.
+\item Find an equation of the tangent line to the curve $x^2 y^3 - x^3 y^2 = 4$ at the point $(1, 2)$. 
+
+\end{enumerate}
+
+\subsection{Linearize and approximate}
+\begin{enumerate}
+\item (2018 Fall Exam 2) Find the linearization of $g(x) = \sqrt{x}$ at $x = 25$. Use this to estimate $\sqrt{26}$.
+\item (2017 Fall Exam 2) Find the linear approximation of $f(x) = \cos(x)$ near $x = \frac{\pi}{4}$. Use this to estimate $\cos(\frac\pi4+\frac{1}{10})$.
+\item (2018 Fall Final) Use the linearization of $u(x) = \ln x$ at $x = 1$ to approximate $\ln(0.9)$.
+\item (2017 Spring Exam 3) Find linearization for $g(x) = \ln(x)$ at $x = 1$. Use it to approximate $\ln(1.15)$.
+\item (2016 Spring Exam 3) Find the linearization of $w(x) = \sqrt{x}$ at $x = 9$. Use it to estimate $\sqrt{9.6}$.
+\item (2016 Fall Exam 2) Find the linear approximation of $f(x) = \sqrt[3]{x}$ near $x = 8$. Use it to estimate $\sqrt[3]{8.1}$.
+\item (2015 Fall Exam 2) Find an equation of the tangent line to the curve $y = \sqrt[5]{x}$ at $x = 32$, and use this to approximate $\sqrt[5]{33}$.
+\end{enumerate}
+
+\subsection{Differentials}
+\begin{enumerate}
+\item (2018 Fall Exam 2) Let $V$ denote the volume of a cube of side length $x$. Find the differential $dV$ in terms of $x$ and $dx$.
+\item (2017 Fall Exam 2) The volume of a cone of height 9 ft is given by $V = 3\pi r^2$. Estimate the change in volume using the differentials $dV$ and $dr$, if $r = 5$ ft and increased by $\frac{1}{10}$ ft.
+\item (2017 Spring Exam 3) The volume of a sphere is given by $V = \frac 43 \pi r^3$. Find the differential $dV$.
+\item (2016 Fall Exam 2) The volume of a sphere is given by $V = \frac 43 \pi r^3$. Estimate the change in volume by calculating $dV$, given that $r = 3$ inches and $dr = \frac{1}{12\pi}$ inches.
+\item (2016 Spring Exam 3) Find $dy$ if $y = \cos(4x^2)$.
+\end{enumerate}
+
+\subsection{Find absolute max/min on a closed interval}
+\begin{enumerate}
+\item (2018 Fall Exam 2) $w(x) = x + \sin x$ on $[0, 2\pi]$.
+\item (2018 Fall Final) $w(x) = x - \sqrt{x}$ on $[0, 4]$.
+\item (2017 Fall Exam 2) Determine the absolute minimum and absolute maximum value of the function $f(x) = x^4 - 2x^2$ over the interval $[0, 2]$.
+\item (2017 Spring Exam 3) Find the absolute min and max of $w(x) = 2x^3 - 9x^2 + 3$ on $[-1, 1]$.
+\item (2016 Spring Exam 3) Find absolute min/max of $g(x) = x^3 - 3x^2 + 4$ on $[-1, 1]$.
+\item (2016 Fall Exam 2) Find absolute min/max value of $f(x) = x^3 - 3x$ over the interval $[0, 2]$.
+\item (2015 Fall Exam 2) Find the $x$ and $y$ coordinates of the absolute maximum of the function $y = x^3 - x^2 - x$ on the closed interval $0 \le x \le 2$ 
+\end{enumerate}
+
+\subsection{Horizontal Asymptotes}
+\begin{enumerate}
+\item (2018 Fall Exam 2) Find $\lim_{x\to-\infty} \frac{3x^9 - 7x + 3}{2 + 5x + 6x^9}$.
+\item (2017 Fall Exam 2) Evaluate $\lim_{x\to-\infty} \frac{7-3x^5}{2x^5-15x^3}$.
+\item (2016 Fall Exam 2) Evaluate $\lim_{x\to-\infty} \frac{x+3}{\sqrt{x^2-1}}$
+  \item (2015 Spring Exam 1) Find horizontal asymptote(s) for $y = \frac{\sqrt{9x^2+5}}{2x-7}$
+\end{enumerate}
+
+\subsection{Related Rates}
+\textbf{\color{red}{Always include units!}}
+\begin{enumerate}
+  \item (2018 Fall Exam 2) A hot air balloon rising vertically is tracked by an observer located 2 miles from the lift-off point. At a certain moment, the angle between the observer's line of sight and the horizontal is $\tfrac\pi4$, and it is changing at a rate of $\tfrac{1}{10}$ radians/minute. How fast is the balloon rising at this moment?
+  \item (2018 Fall Final) A 5-foot ladder rests against a wall. The bottom of the ladder slides away from the wall at a rate of 2 ft/s. How fast is the top of the ladder sliding down the wall when the bottom of the ladder is 3 ft from the wall? 
+  \item (2017 Fall Exam 2) A rocket is launched vertically upward from a point $P$. At the same time, a car is driving on a straight line away from the point $P$. Use related rates to determine the rate that the distance between the rocket and the car is increasing at the instant when the rocket is 3 miles up and travelling 500 miles per hour, and the car is 4 miles away from $P$ and travelling 30 miles per hour. (Assume the ground is flat.)
+  \item (2017 Summer Exam 2) A plane is flying away from you at 500 mph at a height of 3 miles. How fast is the plane's distance from you increasing at the moment when the plane is flying over a point on the ground 4 miles from you?
+  \item (2017 Spring Exam 2) Boyle's Law says that when a sample of gas is compressed at a constant temperature, the pressure $P$ and the volume $V$ satisfy the equation $PV = C$, where $C$ is a constant. Suppose that at a certain instant, the volume is $\SI{300}{cm^3}$, the pressure is 100 kPa, and the pressure is increasing at a rate of 20 kPa/min. At what rate is the volume changing at this instant?
+  \item (2017 Spring Exam 2) The length of a rectangle is increasing at a rate of 2 ft/s, and its width is increasing at a rate of 3 ft/s. At what rate is the area of the rectangle increasing when the length is 6 ft and the width is 7 ft?
+\end{enumerate}
+
+\subsection{Curve sketching}
+\begin{tcolorbox}
+By ``the full process for curve sketching'' I mean:
+\begin{enumerate}
+\item Finding intercepts
+\item Finding asymptotes (HA, VA)
+\item Finding critical numbers and sign chart for $f'$
+\item Finding inflection points and sign chart for $f''$
+\item Sketching the curve using the above data.
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{enumerate}
+\item (2018 Fall Exam 2) Sketch $f(x) = x^2(x+3)$, which has derivatives $f'(x) = 3x(x+2)$, $f''(x)=6(x+1)$. Do the entire process.
+\item (2017 Fall Exam 2) For $g(x) = 20x^3 - 3x^5$, draw the number line for $g'(x)$ and $g''(x)$. Classify the critical points.
+\item (2017 Fall Exam 2) Let $f(x) = \frac{2-x}{x^2 - 1}$. Then $f'(x) = \frac{x^2- 4x+1}{(x^2-1)^2}$. Find asymptotes, intercepts, critical points. Classify the critical points.
+\item (2017 Summer Exam 2) Let $f(x) = x^3 - 2x^2 + x - 1$. Find when $f$ is concave up/down, increasing/decreasing, the inflection points, the critical points, and the local minima and maxima. 
+\item (2017 Spring Exam 3) Sketch $f(x) = \frac{x^2}{x^2 + 3}$. It has $f'(x) = \frac{6x}{(x^2+3)^2}$ and $f''(x) = \frac{-18(x^2-1)}{(x^2+3)^3}$. Do the entire process.
+\item (2016 Spring Exam 3) Sketch $f(x) = \frac{x^2- 1}{x^2 + 3}$. It has $f'(x) = \frac{8x}{(x^2+3)^2}$ and $f''(x) = \frac{-24(x^2-1)}{(x^2+3)^3}$. Do the entire process.
+\item (2016 Fall Exam 2) Let $g(x) = x^5 - \frac{20}{3} x^3$. Draw the number line for $g'$ and $g''$. Classify the critical points. State when $g(x)$ is concave up.
+\item (2016 Fall Exam 2) Let $f(x) = \frac{2x^2-6x}{4-x^2}$. Then $f'(x) = \frac{-2(3x^2-8x+12)}{(4-x^2)^2}$. Sketch $f(x)$ (skip using $f''$ or inflection points).
+\item (2015 Fall Exam 3) Let $f(x) = \left( \frac{x-2}{x} \right)^2$. Then $f'(x) = \frac{4(x-2)}{x^3}$ and $f''(x) = \frac{-8(x-3)}{x^4}$. Do the entire process.
+\end{enumerate}
+
+\end{document}

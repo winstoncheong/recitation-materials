@@ -1,0 +1,259 @@
+\documentclass[10pt]{scrartcl}
+
+\usepackage[inline]{enumitem}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{tcolorbox}
+\usepackage{textcomp}
+\usepackage{commath}
+\usepackage{mathtools}
+\usepackage{physics}
+\usepackage{outlines}
+\usepackage[colorlinks=true]{hyperref}
+
+
+\usepackage{siunitx}
+\DeclareSIUnit{\feet}{ft}
+
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\vavg}{v_{\text{avg}}}
+\newcommand{\inv}{^{-1}}
+
+\everymath{\displaystyle} 
+
+\title{Final Exam Prep}
+\date{Last Modified: 2019/11/05}
+\author{}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+%\fbox{The shaded boxed are full solutions, as the answer \emph{is} the whole solution.}
+%\vskip 1em
+
+\section{Material outline:}
+\begin{outline}
+  \1 Previous material:
+  \2 Limits
+  \3 Algebraically
+  \3 End behavior
+  \3 L'H\^{o}pital
+  \2 Derivatives
+  \3 Using limit definition
+  \3 All derivative rules
+  \3 Implicit diff
+  \3 Related rates
+  \3 Reading from a graph ($f(x)$ or $f'(x)$) the intervals where a function is increasing/decreasing, concave up/down
+  \3 Finding the linearization, and using it to approximate
+  \3 Finding absolute max and min on a closed interval
+  \3 Applied optimization
+  \4 Arguing that something is an \emph{absolute} max/min using  1st derivative, 2nd derivative, or closed interval method
+  \2 Integrals
+  \3 FTC part 1
+  \3 Finding a particular antiderivative given boundary conditions.
+  \3 U-sub technique
+  \3 Computing displacement given a velocity function and endpoints.
+  \3 Graphically, as areas under curves.
+  \3 Approximating area using Left/Right/Mid
+  %%%%%%
+  \1 New material
+  \2 Area between two curves
+  \2 Volumes of revolution
+  \3 Disk / Washer method
+  \4 Disk:
+  \[
+    V = \pi \int_a^b \bigl( r(x) \bigr)^2 \dif x
+  \]
+  \4 Washer:
+  \[
+    V = \pi \int_a^b \Bigl( \bigl( R(x) \bigr)^2 - \bigl( r(x) \bigr)^2 \Bigr) \dif x
+  \]
+  \3 Shell method
+  \[
+    V = 2\pi \int_a^b r(x) \cdot h(x) \dif x
+  \]
+\end{outline}
+
+\section{Past exam problems}
+The following problems all have written solutions in my exam archive at \url{http://www.math.ksu.edu/\~winstonc/exams/calc1}.
+
+Note, I have rephrased some of the problems here, to ease typing. 
+Unless I've made a mistake, the exam listed should be where the problem was originally found.
+
+
+\subsection{Limits}
+Potentially a mixed bag. These may or may not require the usage of L'H\^{o}pital
+\begin{enumerate}
+\item (2018 Fall Final) $\lim_{x\to1} \frac{\ln x}{x-1}$
+\item (2017 Fall Final) $\lim_{x\to2} \frac{x^3 - 4x}{2-x}$
+\item (2017 Fall Final) $\lim_{h\to 0} \frac{\sin(3h)}{\sin(2h)} + \frac{\cos(3h)}{\cos(2h)}$
+\item (2017 Fall Final) $\lim_{x\to\infty} (x^2+5)^{1/x}$
+\item (2017 Spring Final) $\lim_{x\to0} \frac{e^x}{x+1}$
+\item (2017 Spring Final) $\lim_{\theta\to0} \frac{\sin(\theta^2)}{\theta}$
+\item (2016 Fall Final) $\lim_{x\to 3} \frac{x-3}{9x-x^3}$
+\item (2016 Fall Final) $\lim_{h\to 0}\frac{\tan(2h)}{\sin(5h)}$
+\item (2016 Fall Final) $\lim_{x\to\infty} (5+x)^{1/x}$
+\item (2016 Spring Final) $\lim_{x\to\pi} \frac{\cos x}{x}$
+\item (2016 Spring Final) $\lim_{x\to\infty} \frac{23 + x - 5x^5 - 3x^9}{4x^9 - 3x - 2}$
+\end{enumerate}
+
+\subsection{Derivatives}
+\subsubsection{Mixed bag of problems}
+Some of these are just a straightforward application of derivative rules, while others may use implicit differentiation or logarithmic differentiation.
+
+\begin{enumerate}
+\item (2018 Fall Final) $\dod{}{x} \frac{\tan x}{\ln x + 3}$
+\item (2018 Fall Final) $\dod{}{x} \sin(x^2) \cdot \arctan(x)$
+\item (2018 Fall Final) $\dod{y}{x}$ if $x^3 + xy + y^4 = 5$
+\item (2018 Fall Final) $f'(x)$ if $f(x) = x^{3x}$
+\item (2017 Fall Final) $f'(t)$ where $f(t) = \sin^5(\ln t)$
+\item (2017 Fall Final) $\dod{}{x} e^{3x} \tan\inv(x)$
+\item (2017 Fall Final) $\dod{}{x} \frac{x+\tan x}{1-x^2}$
+\item (2017 Spring Final) $\dod{}{x} \frac{\tan x}{e^x + 5}$
+\item (2017 Spring Final) $\dod{}{x} \cos(x^3) \cdot \arctan(x)$
+\item (2017 Spring Final) Find $\dod yx$ for $x^2 - xy + y^3 = 5$
+\item (2017 Spring Final) Find $\dod yx$ for $y = x^{7x}$
+\item (2016 Fall Final) $f'(t)$ where $f(t) = \cos^2(2t+1)$
+\item (2016 Fall Final) $\dod{}{x} x \ln(x^2 + 2)$
+\item (2016 Fall Final) $\dod{}{x} \frac{e^{5x}}{x^2 + 1}$
+\item (2016 Spring Final) $\dod{}{x} \frac{e^x}{\sqrt x}$
+\item (2016 Spring Final) $\dod{}{x} \ln(x) \cdot \sin(x^2)$
+\item (2016 Spring Final) Find $\dod yx$ for $x^3 + y^3 = 5xy$
+\item (2016 Spring Final) Find $\dod yx$ for $x^{\cos x}$
+\end{enumerate}
+
+\subsubsection{Using limit definition}
+For these problems, the limit definition \textbf{must} be used.
+\begin{enumerate}
+\item (2018 Fall Final) Find $f'(2)$ if $f(x) = x^2$.
+\item (2017 Fall Final) $f'(x)$ for $f(x) = x^2 + x$. 
+\item (2017 Spring Final) Find $f'(2)$ if $f(x) = 3x^2$
+\item (2016 Fall Final) Find $f'(x)$ for $f(x) = 3x^2 - x$
+\item (2016 Spring Final) Find $f'(2)$ if $f(x) = x^2 + x$.
+\end{enumerate}
+
+
+\subsection{Integrals}
+Some of these will require u-sub. 
+\begin{enumerate}
+\item (2018 Fall Final) $\int \left( \frac 2x - \sqrt{x} \right) \dif x$
+\item (2018 Fall Final) $\int \frac{\cos(\ln x)}{x} \dif x$
+\item (2017 Fall Final) $\int e^{5x} - \frac{1}{\sqrt{4-x^2}} \dif x$
+\item (2017 Fall Final) $\int \sin^5(2x) \cos(2x) \dif x$
+\item (2017 Fall Final) $\int_1^e \frac{(\ln x)^2}{x} \dif x$
+\item (2017 Spring Final) $\int (\sqrt x + \cos x - 5) \dif x$
+\item (2017 Spring Final) $\int \frac{\sqrt{\ln x}}{x} \dif x$
+\item (2017 Spring Final) $\int_0^{\pi/2} \sin^4 \theta \cos \theta \dif \theta$
+\item (2016 Fall Final) $\int \sin(\pi x/ 2) + 2^x - \frac{1}{\sqrt{1-x^2}} \dif x$
+\item (2016 Fall Final) $\int \tan^3(2x) \sec^2(2x) \dif x$
+\item (2016 Fall Final) $\int_0^1 \frac{x+2}{x^2+4x+1} \dif x$
+\item (2016 Spring Final) $\int \frac{7 \dif x}{1+x^2}$
+\item (2016 Spring Final) $\int t \sqrt{t^2 + 3} \dif t$
+\item (2016 Spring Final) $\int_0^{\pi/2} \sin^3 \theta \cos \theta \dif \theta$
+\end{enumerate}
+
+\subsubsection{Initial value problems}
+\begin{enumerate}
+\item (2017 Fall Final) $f'(t) = 4t^3 - \sin t$, $f(0) = 1$. 
+\item (2016 Fall Final) $f'(t) = \sqrt{t}$, $f(1) = 2$.
+\end{enumerate}
+
+
+\subsubsection{Approximating integrals}
+\begin{enumerate}
+\item (2017 Fall Final) Estimate the area below the curve $y = x^2 + 2$ over the interval $[0, 3]$ using $R_3$. Make a sketch of the curve with the rectangles used.
+\item (2016 Fall Final) Estimate the area below the curve $y = x^2$ over the interval $[0, 2]$ using $L_4$. Make a sketch of the curve with the rectangles used.
+\end{enumerate}
+
+\subsection{FTC}
+\begin{enumerate}
+\item (2018 Fall Final) $\dod{}{x}\int_x^5 e^{\sin t} \dif t$
+\item (2017 Spring Final) $\dod{}{x} \int_3^x t \cdot \sin(t^3) \dif t$
+\item (2016 Spring Final) $\dod{}{x} \int_0^x e^{\cos t} \dif t$
+\end{enumerate}
+
+\subsection{Applications of derivatives}
+\subsubsection{Related rates}
+\begin{enumerate}
+\item (2018 Fall Final) A 5-foot ladder rests against a wall. The bottom of the ladder slides away from the wall at a rate of \SI{2}{ft/s}. How fast is the top of the ladder sliding down the wall when the bottom of the ladder is \SI{3}{ft} from the wall?
+\item (2017 Fall Final) Consider a rectangle with edges of length $x, y$. If $x$ is increasing at a rate of \SI{5}{m/sec} and $y$ is decreasing at a rate of \SI{2}{m/sec}, at what rate is the area $A$ of the rectangle changing when $x = \SI{3}{m}$ and $y = \SI{4}{m}$?
+\item (2017 Spring Final) Suppose that an oil spill from a ruptured tanker spreads in a circular pattern. If the radius of the oil spill increases at a constant rate of \SI{2}{ft/sec}, how fast is the area of the spill increasing when the radius is \SI{10}{ft}?
+\item (2016 Fall Final) Consider a right triangle with edges of length $x, y, z$, with $z$ the hypotenuse. If $x$ is increasing at a rate of \SI{5}{m/sec} and $z$ is increasing at a rate of \SI{7}{m/sec}, at what rate is $y$ increasing when $x = \SI{3}{m}$ and $z = \SI{5}{m}$?
+\item (2016 Spring Final) A hot air balloon rising vertically is tracked by an observer located 5 miles from the lift-off point. At a certain moment, the angle between the observer's line of sight and the horizontal is $\frac \pi 4$, and it is changing at a rate of $\frac{1}{10}$ radians/minute. How fast is the balloon rising at this moment?
+\end{enumerate}
+
+\subsubsection{Finding tangent lines to curves}
+\begin{enumerate}
+\item (2017 Fall Final) Find the equation of the tangent line to the curve $xy + y^2 = 2x - 1$ at $(2, 1)$.
+\item (2016 Fall Final) Find the equation of the tangent line to the curve $x^3 + y^2 = 5y + 4$ at $(2, 1)$.
+\end{enumerate}
+
+\subsubsection{Linearization}
+\begin{enumerate}
+\item (2018 Fall Final) Use a linearization of $u(x) = \ln x$ at $x = 1$ to approximate $\ln(0.9)$.
+\item (2017 Fall Final) Find the linear approximation of $f(x) = \sqrt{x}$ near $x = 9$. Use this to estimate $\sqrt{8.9}$.
+\item (2017 Spring Final) Use a linearization of $u(x) = \sqrt{x}$ at $x = 9$ to approximate $\sqrt{9.6}$.
+\item (2016 Fall Final) Find the linear approximation of $f(x) = \sqrt{x}$ near $x = 4$. Use this to estimate $\sqrt{4.1}$.
+\item (2016 Spring Final) Use linearization to approximate $\sin(0.01)$. 
+\end{enumerate}
+
+\subsubsection{Gathering data using f' and f''}
+\begin{enumerate}
+\item (2017 Fall Final) Let $f(x)$ be a function with $f'(x) = x^2(x^2-4)(x-7)$. Find the critical points of $f(x)$, and the intervals where $f(x)$ is increasing / decreasing. Classify each critical point as a local min, local max, or neither.
+\item (2017 Fall Final) Let $g(x) = 2x^6 - 5x^4$. Determine the intervals where $g(x)$ is concave up / concave down. Determine all inflection points.
+\item (2017 Spring Final) Given $w''(x) = \frac{3-x}{x^2 + 7}$, find the intervals where $w(x)$ is concave up / concave down. Determine inflection points.
+\item (2016 Fall Final) Let $g(x) = 3x^5 + 20x^3$. Determine intervals where $g(x)$ is concave up / concave down. Determine all inflection points. 
+\item (2016 Fall Final) Let $f(x) = x^2 (x-4)^3$. Given $f'(x) = x(x-4)^2(5x-8)$. Find the critical points of $f(x)$. Find the intervals where $f(x)$ is increasing / decreasing, and classify the critical points (local min / local max / neither).
+\item (2016 Spring Final) Given $w''(x) = \frac{2(x-1)}{x^2 + 3}$, find the intervals where $w(x)$ is concave up / concave down. Determine inflection points.
+\end{enumerate}
+
+\subsubsection{Find absolute min / max on a closed interval}
+\begin{enumerate}
+\item (2018 Fall Final) $w(x) = x - \sqrt x$ on $[0, 4]$
+\item (2017 Spring Final) $v(x) = x^3 + 3x^2 + 1$ on $[-1, 1]$
+\item (2016 Spring Final) $v(x) = x^3 - 3x + 1$ on $[0, 2]$
+\end{enumerate}
+
+\subsubsection{Optimization}
+These problems require some justification that the calculated answer is an absolute max/min.
+
+\begin{enumerate}
+\item (2018 Fall Final) When a company charges $x$ dollars per chair, it makes a total profit $P(x) = -2x^2 + 200x - 50$ dollars. If the company wants to maximize total profit, what should it charge per chair?
+\item (2017 Fall Final) A rectangular fence consists of three sides costing \$2 per meter and one side costing \$1 per meter. If the area of the rectangle is 12 square meters, find the dimensions that minimize the cost of the fence.
+\item (2017 Spring Final) A farmer has 20 feet of fencing and wants to fence off a rectangular region that borders a straight river. The farmer needs no fencing along the river. What dimensions will maximize the fenced-in area?
+\item (2016 Fall Final) Find the dimensions of a cylinder with total surface area $6\pi$ square meters, including top and bottom, that maximizes its volume. 
+\item (2016 Spring Final) Suppose you want to enclose a \SI{25}{ft^2} rectangular area with fencing. What is the minimum length of fencing needed?
+\end{enumerate}
+
+
+\subsection{Applications of Integrals}
+\subsubsection{Displacement}
+\begin{enumerate}
+\item (2018 Fall Final) Suppose a particle has position $s(t)$ feet at time $t$ seconds and a velocity function $s'(t) = t \cdot \sin(\pi t^2)$ ft/s. Find the displacement from time $t=0$ to time $t = 1$. 
+\end{enumerate}
+
+\subsubsection{Area between curves}
+\begin{enumerate}
+\item (2018 Fall Final) Find the area between the curves $y = 4$ and $y = x^2$
+\item (2017 Fall Final) Calculate the area of the region with $x\ge 0$ bounded by the $y$-axis, the parabola $y = x^2 - 2x$ and the line $y = 6-x$.
+\item (2017 Spring Final) Find the area bounded between $y = 4$ and $y = x^2$. 
+\item (2016 Fall Final) Calculate the area between $y = 8-x^2$ and $y = x+2$. 
+\item (2016 Spring Final) Find the area bounded between $y = 2x^2$ and $y = 3 - x^2$. 
+\end{enumerate}
+
+
+\subsubsection{Volume of revolution}
+\begin{enumerate}
+\item (2018 Fall Final) Rotate the region bounded by $y=x^3$, $x = 0$, and $y = 1$ around the $x$-axis. Find the volume.
+\item (2018 Fall Final) Rotate the region bounded by $y=x^2$ and $y = x$ around the $y$-axis. Find the volume.
+\item (2017 Fall Final) Rotate the region bounded by the $y$-axis, $y=x$, and $y=3 + \frac12 x$ about the $y$-axis. Set up the integral for the volume.
+\item (2017 Fall Final) Rotate the region bounded by the $y$-axis, $y=x$, and $y=3 + \frac12 x$ about the $x$-axis. Set up the integral for the volume.
+\item (2017 Spring Final) Find the volume of the solid obtained by rotating the region bounded by $y = x$ and $y = x^2$ around the $x$-axis.
+\item (2016 Fall Final) Take the region bounded between the curves $y = 4x - x^3$ and $y = x^2$, with $x \ge 0$, and rotate around the $x$-axis. Set up the integral for the volume. (The curves don't intersect at a nice $x$-value.)
+\item (2016 Fall Final) Take the region bounded between the curves $y = 4x - x^3$ and $y = x^2$, with $x \ge 0$, and rotate around the $y$-axis. Set up the integral for the volume. (The curves don't intersect at a nice $x$-value.)
+\item (2016 Spring Final) Find the volume of the solid obtained by rotating the region bounded by $y = 4$ and $y = x^2$ around the $x$-axis. 
+\end{enumerate}
+
+\end{document}

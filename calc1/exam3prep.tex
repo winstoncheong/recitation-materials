@@ -1,0 +1,182 @@
+\documentclass[10pt]{scrartcl}
+
+\usepackage[inline]{enumitem}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{tcolorbox}
+\usepackage{textcomp}
+\usepackage{commath}
+\usepackage{mathtools}
+\usepackage{physics}
+\usepackage{outlines}
+\usepackage[colorlinks=true]{hyperref}
+
+
+\usepackage{siunitx}
+\DeclareSIUnit{\feet}{ft}
+
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\vavg}{v_{\text{avg}}}
+\newcommand{\inv}{^{-1}}
+
+\everymath{\displaystyle} 
+
+\title{Exam 3 Prep}
+\date{Last Modified: 2019/11/05}
+\author{}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+%\fbox{The shaded boxed are full solutions, as the answer \emph{is} the whole solution.}
+%\vskip 1em
+
+\section{Material outline:}
+\begin{outline}
+  \1 Previous material:
+  \2 All derivative rules
+  \1 Applied optimization 
+  \2 Closed interval method
+  \2 1st derivative test
+  \2 2nd derivative test
+  \1 L'H\^{o}pital's rule 
+  \2 Remember: the limit must be of type $\frac 00$ or type $\frac \infty \infty$ for L'H\^{o}pital's to apply.
+  \1 Evaluating Integrals
+  \2 Visually/geometrically (area under a curve)
+  \2 Antiderivatives
+  \2 U-substitution
+  \2 Symmetry? (even/odd)
+  \2 Initial value problem
+  \1 Using integrals
+  \2 ``Net change theorem''
+  \2 Calculating displacement / distance given a velocity function and endpoints in time.
+  \1 Approximating integrals
+  \2 Left-Endpoint / Right-Endpoint / Midpoint
+  \1 Fundamental Theorem of Calculus (FTC)
+  \2 Part 2:
+  \[
+    \int_a^b f(x) \dif x = F(b) - F(a)
+  \]
+  where $F'(x) = f(x)$.
+  \2 Part 1:
+  \3 Usual version:
+  \[
+    \dod{}{x} \int_a^{x} g(t) \dif t = g(x)
+  \]
+  \3 In general:
+  \[
+    \dod{}{x} \int_a^{f(x)} g(t) \dif t = g(f(x)) \cdot f'(x)
+  \]
+\end{outline}
+
+\section{Past exam problems}
+The following problems all have written solutions in my exam archive at \url{http://www.math.ksu.edu/\~winstonc/exams/calc1}.
+
+Note, I have rephrased some of the problems here, to ease typing. 
+Unless I've made a mistake, the exam listed should be where the problem was originally found.
+
+\subsection{Evaluating limits (L'H\^{o}pital)}
+\begin{enumerate}
+\item (2018 Fall Exam 3) $\lim_{\theta \to 0} \frac{\sin(\theta^2)}{\theta^2}$
+\item (2018 Fall Exam 3) $\lim_{x\to\infty} \frac{x \ln x}{x^2 + 3x}$
+\item (2017 Fall Exam 3) $\lim_{t\to0} \frac{1+t-\cos t}{t^2 + \sin(2t)}$
+\item (2017 Fall Exam 3) $\lim_{x\to\infty} x^2 2^{-x}$
+\item (2017 Fall Exam 3) $\lim_{x\to0^+} x^{2x}$
+\item (2017 Spring Exam 3) $\lim_{x\to\infty} \frac{e^x + 5x}{x + 3}$
+\item (2017 Spring Exam 3) $\lim_{\theta\to0} \frac{\sin(\theta^2)}{3\theta^2}$
+\item (2016 Fall Exam 3) $\lim_{t\to 0} \frac{4t-\sin(2t)}{5t^2 + 3t}$
+\item (2016 Fall Exam 3) $\lim_{x\to\infty} x \sin(\frac 2x)$
+\item (2016 Fall Exam 3) $\lim_{x\to\infty} (5x)^{1/x}$
+\end{enumerate}
+
+\subsection{Evaluating integrals}
+Some may require u-sub. Some may require geometry / symmetry.
+\begin{enumerate}
+\item (2018 Fall Exam 3) $\int (\sqrt x + 6\sec^2(x) - 5) \dif x$
+\item (2018 Fall Exam 3) $\int_0^4 (e^x - 3) \dif x$
+\item (2018 Fall Exam 3) $\int_0^{\pi/2} 2\sin^3(\theta) \cos(\theta) \dif \theta$
+\item (2018 Fall Exam 3) $\int x \sqrt{5+x} \dif x$
+\item (2017 Fall Exam 3) $\int \frac{\sqrt x - \sqrt 2 x^5}{x} \dif x$
+\item (2017 Fall Exam 3) $\int 3x \sin(5x^2) \dif x$
+\item (2017 Fall Exam 3) $\int x \sqrt{x+2} \dif x$
+\item (2017 Fall Exam 3) $\int_{-2}^2 \sin^3(5x) + \sqrt{4-x^2} \dif x$
+\item (2016 Fall Exam 3) $\int \frac{x^2 - 7x}{x^3} \dif x$
+\item (2016 Fall Exam 3) $\int \sqrt{\tan x}\sec^2 x \dif x$
+\item (2016 Fall Exam 3) $\int \frac{(\ln x)^3}{x} \dif x$
+\item (2016 Fall Exam 3) $\int_{-2}^2 \left( \frac{\sin x}{1+x^2} + \cos(\frac{\pi}4 x) \right) \dif x$
+\item (2016 Spring Exam 3) $\int (\sec^2 x + 4) \dif x$
+\item (2016 Spring Exam 3) $\int (\sqrt x + 5e^x) \dif x$
+\item (2015 Fall Exam 3) $\int (x^2 + 4)^2 \dif x$
+\item (2015 Fall Exam 3) $\int_1^2 2^t \dif t$
+\item (2015 Fall Exam 3) $\int \tan^3 x \sec^2 x \dif x$
+\item (2015 Fall Exam 3) Suppose that $\int_0^6 f(x) \dif x = 9$, $\int_4^6 f(x) \dif x = 5$, and $\int_0^4 g(x) \dif x = 8$. Compute $\int_0^4 (5f(x) - 3g(x)) \dif x$.   
+\item (2015 Spring Exam 3) Find the most general antiderivative of $\sec^2 x + 3x^4 + 2$. 
+\item (2014 Fall Exam 3) $\int \left( \cos x + 4x + \frac{1}{x} \right) \dif x$
+\item (2014 Fall Exam 3) $\int \left( 3e^x + 4\sin x + 7\sec^2 x \right) \dif x$
+\item (2014 Spring Exam 3) $\int (7 + 2x + 3e^x) \dif x$
+\item (2014 Spring Exam 3) $\int (\sec^2 \theta + \cos \theta) \dif \theta$
+\end{enumerate}
+
+\subsubsection{with initial conditions}
+\begin{enumerate}
+\item (2018 Fall Exam 3) Find $f(x)$ if $f''(x) = 6x$, $f'(0) = 1$, and $f(0) = 2$.
+\item (2017 Fall Exam 3) Solve the initial value problem for $f(t)$: $f'(t) = 2e^{-2t}$, $f(0) = 1$. 
+\item (2016 Fall Exam 3) Solve the initial value problem for $f(t)$: $f'(t) = 4e^{3t}$, $f(0) = 5$.
+\item (2016 Spring Exam 3) Find the function $v(x)$ satisfying $v''(x) = 2$, $v'(0) = -3$, and $v(0) = 5$.
+\item (2015 Fall Exam 3) A ball thrown vertically from the roof of a building 150 feet tall hits the ground 3 seconds later. Was the ball thrown upward or downward? With what speed was it thrown? (Recall that acceleration due to gravity is $a = -32 \si{ft/sec^2}$.) \footnote{This is a neat problem.}
+\item (2015 Spring Exam 3) Find the function $g(x)$ satisfying $g'(x) = \sin x + 1$ and $g(0) = 3$. 
+\item (2014 Fall Exam 3) Find $v(x)$ if $v''(x) = 6x+ 2$, $v'(0) = 1$, and $v(0) = 2$.
+\item (2014 Spring Exam 3) Find the function $k(x)$ provided that $k'(x) = 2x^3 + 3x + 2$ and $k(0) = 2$. 
+\end{enumerate}
+
+\subsubsection{for distance / displacement} 
+\begin{enumerate}
+\item (2018 Fall Exam 3) Suppose a particle has position $s(t)$ feet at time $t$ seconds and a velocity function $s'(t) = 3\cos(t)$ ft/s. Find the displacement from time $t = 0$ seconds to time $t = \pi/2$ seconds.
+\item (2016 Fall Exam 3) An object moves along a straight line with velocity $v(t) = 4 - t^2$ m/sec. Find the displacemenet of the object over the time interval $[0, 3]$ seconds. Find the total distance the object travels over the same time interval.
+\item (2015 Fall Exam 3) An object moves along the $x$-axis with velocity $v = 12t^3 - 12t^2 $ \si{cm/sec}. Find the total distance traveled for the interval $-1 \le t \le 2$ seconds.
+\end{enumerate}
+
+\subsection{Approximating integrals}
+\begin{enumerate}
+\item (2017 Fall Exam 3) Estimate the area below the curve $y = \sqrt x$ over the interval $[1, 4]$ using $L_3$. Sketch a graph of the curve and illustrate the rectangles used on the graph.
+\item (2016 Fall Exam 3) Estimate the area below the curve $y = \sqrt x + 1$ over the interval $[0, 6]$ using $R_3$. Sketch a graph of the curve and illustrate the rectangles used on the graph.
+\item (2015 Fall Exam 3) Approximate the area under the curve $y = 12x - 4x^2$ between $x = 0$ and $x = 2$ using four rectangles and the right endpoint method.
+\item (2015 Spring Exam 3) Estimate the area between $y = x^2$ and the $x$-axis over the interval $[0, 4]$. Use $n = 2$ rectangles, taking the sampling points to be the midpoints (in other words, compute $M_2$). Sketch the rectangles on the graph.
+\item (2014 Fall Exam 3) Estimate $\int_0^6 (x^2 + 1) \dif x$ by using $n = 3$ subintervals, taking the sampling points to be midpoints (in other words, compute $M_3$). Sketch the rectangles on a graph. 
+\end{enumerate}
+
+\subsection{FTC Part 1}
+\begin{enumerate}
+\item (2018 Fall Exam 3) $\dod{}{x} \int_3^x e^{2t} \sin(t^3) \dif t$
+\item (2017 Fall Exam 3) $\dod{}{x} \int_2^x \frac{\cos(t^2)}{2+t} \dif t$
+\item (2017 Fall Exam 3) $\dod{}{x} \int_{x^3}^5 \frac{\cos(t^2)}{2+t} \dif t$
+\item (2016 Fall Exam 3) $\dod{}{x} \int_2^x \frac{\sin t}{1+t} \dif t$
+\item (2016 Fall Exam 3) $\dod{}{x} \int_2^{x^3} \frac{\sin t}{1+t} \dif t$
+\item (2015 Fall Exam 3) Define $F(x) = \int_1^x \frac{\sin(\frac{\pi t}{6})}{t^2} \dif t$. Find an equation of the tangent line to $y = F(x)$ at $x = 1$. \footnote{interesting twist}
+\end{enumerate}
+
+\subsection{Applied Optimization}
+In these problems, one must justify why the min/max is an \emph{absolute} min/max.\\
+\textcolor{red}{Include units!}
+
+\begin{enumerate}
+\item (2018 Fall Exam 3) A rectangular open-topped aquarium is to have a square base and volume \SI{8}{m^3}. The material for the base costs \$2 per \si{m^2}, and the material for the sides costs \$1 per \si{m^2}. What dimensions minimize the cost of the aquarium?
+\item (2017 Fall Exam 3) A box with square base and open top is formed from two materials. The base costs \$4 per square foot, while the four sides cost \$1 per square foot. If the total cost for the base and four sides is fixed to ber \$120, find the dimensions that maximize the volume of the box.
+\item (2017 Spring Exam 3) Let $p(x) = 100 - 2x$ be the price in dollars per cake a bakery can charge if it sells $x$ cakes. What cake price will maximize revenue?
+\item (2017 Spring Exam 3) A rectangular open-topped aquarium is to have a square base and volume \SI{5}{m^3}. The material for the base costs \$10 per \si{m^2}, and the material for the sides costs \$1 per \si{m^2}. What dimensions minimize the cost of the aquarium?
+\item (2016 Fall Exam 3) A rectangular fence consists of three sides costing \$2 per meter and one side costing \$1 per meter. If the area of the rectangle is 12 square meters, find the dimensions that minimize the cost of the fence.
+\item (2016 Spring Exam 3) A farmer has 24 feet of fencing and wants to fence off a rectangular area that borders a straight river. The farmer needs no fencing along the river. What dimensions will maximize the fenced-in area?
+\item (2016 Spring Exam 3) A rectangular open-topped aquarium is to have a square base and volume \SI{8}{m^3}. The material for the base costs \$2 per \si{m^2}, and the material for the sides costs \$1 per \si{m^2}. What dimensions minimize the cost of the aquarium?
+\item (2015 Fall Exam 3) A landscaper is designing a fence along the four sides of a rectangular garden, which is to have an area of 5000 square feet. The fencing for three sides costs \$10 per foot, but the fencing along the front side of the garden will cost \$30 per foot. Find the length and width of the garden in order to minimize the total cost.
+\item (2015 Spring Exam 3) If a bakery charges $x$ dollars per cake, it makes a total profit of $P(x) = -x^2 + 100 x - 30$. If the bakery wants to maximize profit, what should it charge per cake?
+\item (2015 Spring Exam 3) Find the dimensions of the box with square base that has volume 8 and minimal surface area.
+\item (2014 Fall Exam 3) A homeowner with 16 feet of fencing wants to enclose a rectangular area against the side of her house. What dimensions will maximize the fenced-in area? (Note that 3 sides of the rectangle will be formed from fencing, and the house will serve as the fourth side of the rectangle.)
+\item (2014 Fall Exam 3) A rectangular open-topped box is to have a square base and volume \SI{12}{ft^3}. If material for the base costs \$3 per \si{ft^2} and material for the sides costs \$1 per \si{ft^2}, what dimensions minimize the cost of the box?
+\item (2014 Spring Exam 3) What is the smallest perimeter possible for a rectangle of area \SI{4}{ft^2}?
+\end{enumerate}
+
+
+
+\end{document}
